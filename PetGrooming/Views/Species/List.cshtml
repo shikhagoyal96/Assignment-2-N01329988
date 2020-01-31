@@ -1,0 +1,24 @@
+﻿@model List<PetGrooming.Models.Species>
+
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List of species</h2>
+<!--displays a list of species from the database-->
+@{
+    foreach (var species in @Model)
+    {
+
+        <div>
+
+            <a href="/Species/Show/@species.SpeciesID">@species.Name</a>
+
+            <a href="/Species/Delete/@species.SpeciesID">Delete Species</a><!--will delete a particular specie-->
+
+        </div>
+
+    }
+    <a href="/Species/Add">Add new species</a><!--will redirect to the add page where the user can add a new specie to the database-->
+}
