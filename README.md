@@ -66,7 +66,9 @@
     B)	For customer info, we will have one html file where we will define the form and 1 javascript file to handle form validations as well as functions. 
         Customerinfo.html
         
+        
         ```
+        
         <form name = “customerform” onsubmit="saveCustomerInfo()" >
         <label for="fname">First name:</label><br>
         <input type="text" id="fname" name="fname" required><br>
@@ -76,11 +78,15 @@
         <input type="tel" id="phone" name="phone" required><br><br>
         <input type="submit" value="Submit">
         </form>
+        
         ```
+
 
         Customerinfo.js
         
+        
         ```
+        
         function saveCustomerInfo() {
             var customerInfo = new CustomerPersonalInfo();
             customerInfo.firstName = document.forms["customerform"]["fname"].value;
@@ -90,10 +96,13 @@
             var response = callthebackendapi(customerinfo);
             if (response) goToNextForm(response.data);
         }
+        
         ```
 
-        Similarly for saving the customer vehicle info we will have one html file where we will define the form and 1 javascript file to handle form validations as well as functions. 
+
+        Similarly for saving the customer vehicle info we will have one html file where we will define the form and 1 javascript file to handle form               validations as well as functions. 
         Customervehicle.html
+        
         
         ```
         
@@ -109,8 +118,10 @@
         
         ```
 
+
         Customervehicle.js
-        
+
+
         ```
         
         function saveVehicleInfo() {
