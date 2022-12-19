@@ -144,11 +144,10 @@
         
         
         ```
-
-        function post(CustomerPersonalInfo customer) {
-            var id = customerinfodbhandler.save();
-            return id;
-        }
+                                        function post(CustomerPersonalInfo customer) {
+                                            var id = customerinfodbhandler.save();
+                                            return id;
+                                        }
 
         ```
 
