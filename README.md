@@ -22,45 +22,45 @@ CREATE TABLE CustomerVehicles (
 )
 ```
 
-    Classes:
-        
-        export class CustomerPersonalInfo {
-            public readonly customerId: number;
-            public readonly firstName: string;
-            public readonly lastName: string;
-            public readonly phone: string;
-            public static Parse(d: string): CustomerPersonalInfo {
-                return CustomerPersonalInfo.Create(JSON.parse(d));
-            }
-  
-            private constructor(d: any) {
-                this.customerId = d.customerId ?? null;
-                this.firstName = d.firstName;
-                this.lastName = d.lastName;
-                this.phone = d.phone;
-            }
-        }
+Classes:
+     
+```js
+export class CustomerPersonalInfo {
+	public readonly customerId: number;
+	public readonly firstName: string;
+	public readonly lastName: string;
+	public readonly phone: string;
+	public static Parse(d: string): CustomerPersonalInfo {
+		return CustomerPersonalInfo.Create(JSON.parse(d));
+	}
 
-        export class CustomerVehicles {
-            public readonly customerVehicleId: number;
-            public readonly customerId: number;
+	private constructor(d: any) {
+		this.customerId = d.customerId ?? null;
+		this.firstName = d.firstName;
+		this.lastName = d.lastName;
+		this.phone = d.phone;
+	}
+}
 
-            public readonly year: string;
-            public readonly make: string;
-            public readonly model: string;
-            public static Parse(d: string): CustomerVehicles {
-                return CustomerVehicles.Create(JSON.parse(d));
-            }
-        
-            private constructor(d: any) {
-            this.customerVehicleId = d.customerVehicleId ?? null;
-                this.customerId = d.customerId;
-                this.year = d.year;
-                this.make = d.make;
-                this.model = d.model;
-            }
-        }
-        
+export class CustomerVehicles {
+	public readonly customerVehicleId: number;
+	public readonly customerId: number;
+	public readonly year: string;
+	public readonly make: string;
+	public readonly model: string;
+	public static Parse(d: string): CustomerVehicles {
+		return CustomerVehicles.Create(JSON.parse(d));
+	}
+
+	private constructor(d: any) {
+		this.customerVehicleId = d.customerVehicleId ?? null;
+		this.customerId = d.customerId;
+		this.year = d.year;
+		this.make = d.make;
+		this.model = d.model;
+	}
+}
+ ```       
 
 2.	If we have a JS based frontend as well as backend, we can share the models between the two. But backend will be responsible for defining the contract so front-end can use it.
 FrontEnd:
@@ -124,7 +124,9 @@ function saveVehicleInfo() {
 ```
         
 Backend:
+
 A)	We will create models/classes as defined above.
+
 B)  We will have to define a controller as well as database handler for customerPersonalInfo class. Similarly, there will be a controller and database         handler for cutomerVehicleInfo.
 customerPersonalInfoController:
           
