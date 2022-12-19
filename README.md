@@ -61,10 +61,10 @@
         
 
 2.	If we have a JS based frontend as well as backend, we can share the models between the two. But backend will be responsible for defining the contract so front-end can use it.
-    FrontEnd:
-    A)	We will have to create a api.js file to handle any calls to backend.
-    B)	For customer info, we will have one html file where we will define the form and 1 javascript file to handle form validations as well as functions. 
-        Customerinfo.html
+FrontEnd:
+A)	We will have to create a api.js file to handle any calls to backend.
+B)	For customer info, we will have one html file where we will define the form and 1 javascript file to handle form validations as well as functions. 
+Customerinfo.html
         
 ```js    
 <form name = “customerform” onsubmit="saveCustomerInfo()" >
@@ -78,7 +78,7 @@
 </form>
 ```
 
-        Customerinfo.js
+Customerinfo.js
         
 ```js 
 function saveCustomerInfo() {
@@ -92,8 +92,8 @@ function saveCustomerInfo() {
 }
 ```
 
-        Similarly for saving the customer vehicle info we will have one html file where we will define the form and 1 javascript file to handle form               validations as well as functions. 
-        Customervehicle.html
+Similarly for saving the customer vehicle info we will have one html file where we will define the form and 1 javascript file to handle form               validations as well as functions. 
+Customervehicle.html
         
 ```js
 <form name = “customervehicleform” onsubmit="saveVehicleInfo()" >
@@ -106,7 +106,8 @@ function saveCustomerInfo() {
 	<input type="submit" value="Submit">
 </form>
 ```
-        Customervehicle.js
+
+Customervehicle.js
 
 ```js
 function saveVehicleInfo() {
@@ -120,11 +121,10 @@ function saveVehicleInfo() {
 }
 ```
         
-    Backend:
-    
-    A)  We will create models/classes as defined above.
-    B)  We will have to define a controller as well as database handler for customerPersonalInfo class. Similarly, there will be a controller and database         handler for cutomerVehicleInfo.
-        customerPersonalInfoController:
+Backend:
+A)	We will create models/classes as defined above.
+B)  We will have to define a controller as well as database handler for customerPersonalInfo class. Similarly, there will be a controller and database         handler for cutomerVehicleInfo.
+customerPersonalInfoController:
           
 ```js
 function post(CustomerPersonalInfo customer) {
@@ -133,8 +133,8 @@ function post(CustomerPersonalInfo customer) {
 }
 ```
 
-        CustomerInfoDbHandler: This will handle the database operations for customerPersaonalInfocontroller
-        customerVehicleInfoController:
+CustomerInfoDbHandler: This will handle the database operations for customerPersaonalInfocontroller
+customerVehicleInfoController:
         
 ```js
 function post(CustomerVehicleInfo vehicle) {
@@ -143,7 +143,7 @@ function post(CustomerVehicleInfo vehicle) {
 }
 ```
 
-        CustomerVehicleInfoDbHandler: This will handle the database operations for customerVehicleInfoController
+CustomerVehicleInfoDbHandler: This will handle the database operations for customerVehicleInfoController
 
 
 3.	There are 2 ways to better achieve it. The preferred way will be to switch to a NoSQL database like MongoDB. Otherwise, in MySQL we could create a new field in the CustomerVehicles table named “VehicleInfoJson” of “JSON” data type which is supported: `VehicleInfoJson json`.
