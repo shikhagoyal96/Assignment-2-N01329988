@@ -159,10 +159,10 @@
 
         ```
 
-        function post(CustomerVehicleInfo vehicle) {
-            var id = vehicleinfodbhandler.save();
-            return id;
-        }
+                function post(CustomerVehicleInfo vehicle) {
+                    var id = vehicleinfodbhandler.save();
+                    return id;
+                }
 
         ```
 
