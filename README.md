@@ -156,25 +156,14 @@
         CustomerInfoDbHandler: This will handle the database operations for customerPersaonalInfocontroller
         customerVehicleInfoController:
         
+
+        
 ```js
-var data = {
-  title: 'JavaScript Templates',
-  license: {
-    name: 'MIT license',
-    url: 'https://opensource.org/licenses/MIT'
-  },
-  features: ['lightweight & fast', 'powerful', 'zero dependencies']
+function post(CustomerVehicleInfo vehicle) {
+	var id = vehicleinfodbhandler.save();
+	return id;
 }
 ```
-        
-
-        ```js
-        function post(CustomerVehicleInfo vehicle) {
-                var id = vehicleinfodbhandler.save();
-                return id;
-        }
-        ```
-
 
         CustomerVehicleInfoDbHandler: This will handle the database operations for customerVehicleInfoController
 
