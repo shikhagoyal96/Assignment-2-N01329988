@@ -66,97 +66,75 @@
     B)	For customer info, we will have one html file where we will define the form and 1 javascript file to handle form validations as well as functions. 
         Customerinfo.html
         
-        
-        ```
-        
-        <form name = “customerform” onsubmit="saveCustomerInfo()" >
-        <label for="fname">First name:</label><br>
-        <input type="text" id="fname" name="fname" required><br>
-        <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname" required><br>
-        <label for="phone">Phone:</label><br>
-        <input type="tel" id="phone" name="phone" required><br><br>
-        <input type="submit" value="Submit">
-        </form>
-        
-        ```
-
+```js    
+<form name = “customerform” onsubmit="saveCustomerInfo()" >
+	<label for="fname">First name:</label><br>
+	<input type="text" id="fname" name="fname" required><br>
+	<label for="lname">Last name:</label><br>
+	<input type="text" id="lname" name="lname" required><br>
+	<label for="phone">Phone:</label><br>
+	<input type="tel" id="phone" name="phone" required><br><br>
+	<input type="submit" value="Submit">
+</form>
+```
 
         Customerinfo.js
         
-        
-        ```
-        
-        function saveCustomerInfo() {
-            var customerInfo = new CustomerPersonalInfo();
-            customerInfo.firstName = document.forms["customerform"]["fname"].value;
-        customerInfo.lastName = document.forms["customerform"]["lname"].value;
-            customerInfo.phone = document.forms["customerform"]["phone"].value;
-            validateInfo(customerInfo);
-            var response = callthebackendapi(customerinfo);
-            if (response) goToNextForm(response.data);
-        }
-        
-        ```
-
+```js 
+function saveCustomerInfo() {
+	var customerInfo = new CustomerPersonalInfo();
+	customerInfo.firstName = document.forms["customerform"]["fname"].value;
+	customerInfo.lastName = document.forms["customerform"]["lname"].value;
+	customerInfo.phone = document.forms["customerform"]["phone"].value;
+	validateInfo(customerInfo);
+	var response = callthebackendapi(customerinfo);
+	if (response) goToNextForm(response.data);
+}
+```
 
         Similarly for saving the customer vehicle info we will have one html file where we will define the form and 1 javascript file to handle form               validations as well as functions. 
         Customervehicle.html
         
-        
-        ```
-        
-        <form name = “customervehicleform” onsubmit="saveVehicleInfo()" >
-        <label for="year">Year:</label><br>
-        <input type="text" id="year" name="year" required><br>
-        <label for="make">Make:</label><br>
-        <input type="text" id="make" name="make" required><br>
-        <label for="model">Model:</label><br>
-        <input type="text" id="model" name="model" required><br><br>
-        <input type="submit" value="Submit">
-        </form>
-        
-        ```
-
-
+```js
+<form name = “customervehicleform” onsubmit="saveVehicleInfo()" >
+	<label for="year">Year:</label><br>
+	<input type="text" id="year" name="year" required><br>
+	<label for="make">Make:</label><br>
+	<input type="text" id="make" name="make" required><br>
+	<label for="model">Model:</label><br>
+	<input type="text" id="model" name="model" required><br><br>
+	<input type="submit" value="Submit">
+</form>
+```
         Customervehicle.js
 
-
-        ```
-        
-        function saveVehicleInfo() {
-            var vehicleInfo = new CustomerVehicles();
-            vehicleInfo.customerId = getfromresponsedata();
-            vehicleInfo.year = document.forms["customerform"]["year"].value;
-        vehicleInfo.make = document.forms["customerform"]["make"].value;
-            vehicleInfo.model = document.forms["customerform"]["model"].value;
-            validateInfo(vehicleInfo);
-            callthebackendapi(vehicleInfo);
-        }
-        
-        ```
+```js
+function saveVehicleInfo() {
+	var vehicleInfo = new CustomerVehicles();
+	vehicleInfo.customerId = getfromresponsedata();
+	vehicleInfo.year = document.forms["customerform"]["year"].value;
+	vehicleInfo.make = document.forms["customerform"]["make"].value;
+	vehicleInfo.model = document.forms["customerform"]["model"].value;
+	validateInfo(vehicleInfo);
+	callthebackendapi(vehicleInfo);
+}
+```
         
     Backend:
     
     A)  We will create models/classes as defined above.
     B)  We will have to define a controller as well as database handler for customerPersonalInfo class. Similarly, there will be a controller and database         handler for cutomerVehicleInfo.
         customerPersonalInfoController:
-        
-        
-        ```
-                                        function post(CustomerPersonalInfo customer) {
-                                            var id = customerinfodbhandler.save();
-                                            return id;
-                                        }
-
-        ```
-
-
+          
+```js
+function post(CustomerPersonalInfo customer) {
+	var id = customerinfodbhandler.save();
+	return id;
+}
+```
 
         CustomerInfoDbHandler: This will handle the database operations for customerPersaonalInfocontroller
         customerVehicleInfoController:
-        
-
         
 ```js
 function post(CustomerVehicleInfo vehicle) {
@@ -166,8 +144,6 @@ function post(CustomerVehicleInfo vehicle) {
 ```
 
         CustomerVehicleInfoDbHandler: This will handle the database operations for customerVehicleInfoController
-
-
 
 
 3.	There are 2 ways to better achieve it. The preferred way will be to switch to a NoSQL database like MongoDB. Otherwise, in MySQL we could create a new field in the CustomerVehicles table named “VehicleInfoJson” of “JSON” data type which is supported: `VehicleInfoJson json`.
