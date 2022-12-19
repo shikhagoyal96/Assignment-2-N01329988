@@ -2,23 +2,25 @@
 
 1.	MySQL tables:
 
-        CREATE TABLE CustomerPersonalInfo (
-        CustomerID int NOT NULL auto_increment,
-        FirstName varchar(255) NOT NULL,
-        LastName varchar(255) NOT NULL,
-        Phone varchar(10)  NOT NULL, // assuming we are storing 10 digits for Canada only
-        PRIMARY KEY (CustomerID)
-        )
+```js
+CREATE TABLE CustomerPersonalInfo (
+	CustomerID int NOT NULL auto_increment,
+	FirstName varchar(255) NOT NULL,
+	LastName varchar(255) NOT NULL,
+	Phone varchar(10)  NOT NULL, // assuming we are storing 10 digits for Canada only
+	PRIMARY KEY (CustomerID)
+)
 
-        CREATE TABLE CustomerVehicles (
-        CustomerVehicleID int NOT NULL auto_increment,
-        CustomerId int NOT NULL,
-        Year int NOT NULL,
-        Make varchar(100) NOT NULL,
-        Model varchar(100) NOT NULL,
-        PRIMARY KEY (CustomerVehicleID),
-        FOREIGN KEY (CustomerID) REFERENCES CustomerPersonalInfo(CustomerID)
-        )
+CREATE TABLE CustomerVehicles (
+	CustomerVehicleID int NOT NULL auto_increment,
+	CustomerId int NOT NULL,
+	Year int NOT NULL,
+	Make varchar(100) NOT NULL,
+	Model varchar(100) NOT NULL,
+	PRIMARY KEY (CustomerVehicleID),
+	FOREIGN KEY (CustomerID) REFERENCES CustomerPersonalInfo(CustomerID)
+)
+```
 
     Classes:
         
