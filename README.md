@@ -65,7 +65,8 @@ export class CustomerVehicles {
 2.	If we have a JS based frontend as well as backend, we can share the models between the two. But backend will be responsible for defining the contract so front-end can use it.
 FrontEnd:
 A)	We will have to create a api.js file to handle any calls to backend.
-B)	For customer info, we will have one html file where we will define the form and 1 javascript file to handle form validations as well as functions. 
+B)	For customer info, we will have one html file where we will define the form and 1 javascript file to handle form validations as well as functions.
+
 Customerinfo.html
         
 ```js    
@@ -95,6 +96,7 @@ function saveCustomerInfo() {
 ```
 
 Similarly for saving the customer vehicle info we will have one html file where we will define the form and 1 javascript file to handle form               validations as well as functions. 
+
 Customervehicle.html
         
 ```js
@@ -128,6 +130,7 @@ Backend:
 A)	We will create models/classes as defined above.
 
 B)  We will have to define a controller as well as database handler for customerPersonalInfo class. Similarly, there will be a controller and database         handler for cutomerVehicleInfo.
+
 customerPersonalInfoController:
           
 ```js
@@ -138,6 +141,7 @@ function post(CustomerPersonalInfo customer) {
 ```
 
 CustomerInfoDbHandler: This will handle the database operations for customerPersaonalInfocontroller
+
 customerVehicleInfoController:
         
 ```js
