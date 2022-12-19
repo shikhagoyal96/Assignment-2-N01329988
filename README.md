@@ -152,18 +152,17 @@
         ```
 
 
-        CustomerInfoDbHandler: This will handle the database operations for customerPersaonalInfocontroller
 
+        CustomerInfoDbHandler: This will handle the database operations for customerPersaonalInfocontroller
         customerVehicleInfoController:
         
+        
 
-        ```
-
-                #> function post(CustomerVehicleInfo vehicle) {
-                #>   var id = vehicleinfodbhandler.save();
-                #>    return id;
-                #> }
-
+        ```js
+        function post(CustomerVehicleInfo vehicle) {
+                var id = vehicleinfodbhandler.save();
+                return id;
+        }
         ```
 
 
